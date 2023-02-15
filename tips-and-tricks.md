@@ -6,13 +6,22 @@ Sometimes you will need to increase the space complexity so you can reduce the t
 
 ### Transforming an array into a hashmap (javascript):
 
+Object:
+
 ```javascript
 // how you will build the hashmap will depend on the use case
-arr.reduce((map, arrValue, index) => map[arrValue] = index, {});
+arr.reduce((map, arrValue, index) => {...map, [arrValue]: index}, {});
 ```
+
+Map:
+
+```javascript
+arr.reduce((map, arrValue, index) => map.set(arrValue, index), new Map());
+```
+
 [Map vs Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 
-`TL;DR:`Both provide equivalent solutions for most cases,but using Objects over Map is more idiomatic across the javascript community and you get simpler api to use. But if you find a use case where you need to use Map, then by all means, use Map.
+`TL;DR:` Both provide equivalent solutions for most cases, use Map when you want a proper hashmap that allows any type of keys. You can use Objects for keys of string type. With objects, you will get a simpler api to use
 
 
 ### Transforming an array into a hashmap (clojure):

@@ -13,7 +13,7 @@
 
 
 def peek(stack):
-    return stack[len(stack)-1]
+    return stack[-1]
 
 def sunset_views(buildings, direction):
     #  rename to better reflect what the array represents

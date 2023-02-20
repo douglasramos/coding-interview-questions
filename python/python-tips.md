@@ -67,6 +67,8 @@ reversed_string = "string"[::-1]
 
 ### Slice [start:end non inclusve:step]
 
+PS.: Slice generates another list. Changes to the new list don't modify the original one
+
 ```python 
 
 "string"[::]    # "string"
@@ -147,4 +149,70 @@ for item in range(0, 3) if False else range(3, 6):
 
 # use in list comprenshion
 res_dct = {lst[i]: i*10 for i in range(0, len(lst)) if i % 2 == 0 }
+```
+
+## Heaps
+
+https://www.educative.io/answers/min-heap-vs-max-heap
+
+https://stackoverflow.com/questions/39095000/if-siftdown-is-better-than-siftup-why-do-we-have-it
+
+insertion and extraction of the minimum element in O(log n) time, where n is the size of the heap.
+
+
+```python
+class MinHeap:
+    def __init__(self):
+        self.heap = []
+
+    def size(self, i):
+        return len(heap)
+
+    def parent(self, i):
+        return (i - 1) // 2
+
+    def left_child(self, i):
+        return 2 * i + 1
+
+    def right_child(self, i):
+        return 2 * i + 2
+
+    def insert(self, value):
+        self.heap.append(value)
+        self.heapify_up(len(self.heap) - 1)
+
+    def sift_up(self, i):
+        while i > 0 and self.heap[i] < self.heap[self.parent(i)]:
+            self.heap[i], self.heap[self.parent(i)] = self.heap[self.parent(i)], self.heap[i]
+            i = self.parent(i)
+
+    def extract_min(self):
+        min_value = self.heap[0]
+        last_value = self.heap.pop()
+        if len(self.heap) > 0:
+            self.heap[0] = last_value
+            self.heapify_down(0)
+        return min_value
+
+    def sift_down(self, i):
+        while i < self.size():
+            min_index = i
+            left = self.left_child(i)
+            right = self.right_child(i)
+            if left < self.size() and self.heap[left] < self.heap[min_index]:
+                min_index = left
+            if right < self.size() and self.heap[right] < self.heap[min_index]:
+                min_index = right
+            if i != min_index:
+                self.heap[i], self.heap[min_index] = self.heap[min_index], self.heap[i]
+                i = min_index
+            else:
+                break
+
+    def build_heap(self, arr):
+        self.heap = arr[:]
+        n = self.size()
+        start = self.parent(n - 1)
+        for i in range(start, -1, -1):
+            self.siftDown(i)
 ```

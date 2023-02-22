@@ -45,16 +45,21 @@ cars.sort(reverse=True)
 
 # sort keeping original array
 newArr = sorted(cars, key=myFunc, reverse=False)
+
+# you can get the max number in an array by doing
+max(arr) # arr needs to be a non-empty array
 ```
 
-### Range  (0 to N)
+### Range  
 
+In python3, range(n) will return an iterator(without creating the whole n-length list), so the space complexity is O(1).
+
+(0 to N)
 ```python
 range(0, N+1)
 ```
 
-### Range (N to 0)
-
+(N to 0)
 ```python
 range(N, -1, -1)
 ```
@@ -225,3 +230,8 @@ class MinHeap:
         for i in range(start, -1, -1):
             self.siftDown(i)
 ```
+
+## Binary Seach Tree
+
+To cut the parent node thal will split the list in the middle use `len(n) // 2` to get the index of the parent  node
+or `endIdx + startIdx // 2`

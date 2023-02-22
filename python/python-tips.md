@@ -7,8 +7,11 @@ items = [1, 2, 3, 4]
 for index, item in enumerate(items):
     print(index, item)
 
-# or use range(start, end not inclusive, step=1)
-for index in range(0, len(item)):
+# or use range
+# range(start, end not inclusive, step)
+# range(end not inclusive) -> start=0 step=1
+# range(start, end not inclusive) -> step=1
+for index in range(len(item)):
     print(index, items[index])
 ```
 
@@ -18,17 +21,16 @@ for index in range(0, len(item)):
 append()	# Adds an element at the end of the list
 clear()	    # Removes all the elements from the list
 copy()	    # Returns a copy of the list
+lst[:]      # Returns a copy of the list
 count()	    # Returns the number of elements with the specified value
 extend()	# Add the elements of a list (or any iterable), to the end of the current list
 index()	    # Returns the index of the first element with the specified value
 insert()	# Adds an element at the specified position
-pop()	    # Removes and returns the element at the specified position. Withou arguments removes the last one
-[-1]       # get the last value
+pop()	    # Removes and returns the element at the specified position. Without arguments removes the last one
+[-1]        # get the last value
 remove()	# Removes the first item with the specified value. Return None
 reverse()	# Reverses the order of the list. Retuns None
 sort()	    # Sorts the list. Returns None
-
-# Examples:
 
 # sort the list by length of values:
 def myFunc(e):
@@ -40,6 +42,9 @@ cars.sort(key=myFunc)
 
 # sort the list in reverse order:
 cars.sort(reverse=True)
+
+# sort keeping original array
+newArr = sorted(cars, key=myFunc, reverse=False)
 ```
 
 ### Range  (0 to N)
@@ -89,6 +94,10 @@ PS.: Slice generates another list. Changes to the new list don't modify the orig
 ```
 
 ### Dictionaries / Hashmaps
+
+One can use any immutable data struct as key of dict.
+Eg. numbers, strings and tuples.
+PS. you can't use objects or lists, because they are mutable. If you want to use a list, do `tuple(myList)`
 
 ```python
 car = {

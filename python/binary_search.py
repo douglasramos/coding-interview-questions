@@ -1,7 +1,5 @@
 # Time O(log(n)) | Space O(1)
 def binarySearch(array, target):
-    # Write your code here.
-
     startIdx = 0
     endIdx = len(array)-1
     while startIdx <= endIdx:

@@ -32,6 +32,12 @@ remove()	# Removes the first item with the specified value. Return None
 reverse()	# Reverses the order of the list. Retuns None
 sort()	    # Sorts the list. Returns None
 
+# Aritimetic
+
+[] + [] == []
+[1,2] + [3,4] [1, 2, 3, 4]
+
+
 # sort the list by length of values:
 def myFunc(e):
   return len(e)
@@ -48,6 +54,19 @@ newArr = sorted(cars, key=myFunc, reverse=False)
 
 # you can get the max number in an array by doing
 max(arr) # arr needs to be a non-empty array
+```
+
+### Predicates
+
+Falsy values: `False, [], None, '' and 0`
+
+check for existance. None or not None:
+```python
+if A is None: ...
+if not A: ... # the same, if A is an object
+
+if A is not None: ...
+if A: ...
 ```
 
 ### Range  
